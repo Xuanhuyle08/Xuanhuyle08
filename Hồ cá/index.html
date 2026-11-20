@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài hồ cá</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 48px 20px;
+      place-items: center;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+    }
+
+    .page {
+      width: 920px;
+    }
+
+    .intro {
+      margin-bottom: 22px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      color: #173b59;
+      font-size: clamp(30px, 5vw, 46px);
+      letter-spacing: -1.5px;
+    }
+
+    .intro p {
+      margin: 10px 0 0;
+      color: #698293;
+      font-size: 16px;
+    }
+
+    .aquarium-card {
+      padding: 8px;
+      border-radius: 10px;
+      background: #bfd1d4;
+    }
+
+    .aquarium {
+      position: relative;
+      height: 440px;
+      overflow: hidden;
+      border: 7px solid #90c8d6;
+      /*border-radius: 18px;*/
+      isolation: isolate;
+      background:#37b9cd;
+    }
+
+
+    .ca {
+      position: absolute;
+      z-index: 2;
+      left: -12%;
+      width: 112px;
+      height: auto;
+      filter: drop-shadow(0 5px 2px #07546a38);
+      animation: swim 18s linear infinite;
+    }
+
+    .ca-1 {
+      top: 78px;
+    }
+
+    .ca-2 {
+      top: 190px;
+      width: 94px;
+      animation-duration: 22s;
+      animation-delay: -8s;
+    }
+
+    .ca-3 {
+      top: 270px;
+      width: 82px;
+      animation-duration: 25s;
+      animation-delay: -15s;
+    }
+
+    @keyframes swim {
+      0% {
+        left: -12%;
+        transform: scaleX(1);
+      }
+      49% {
+        left: 100%;
+        transform: scaleX(1);
+      }
+      50% {
+        left: 100%;
+        transform: scaleX(-1);
+      }
+      99% {
+        left: -12%;
+        transform: scaleX(-1);
+      }
+      100% {
+        left: -12%;
+        transform: scaleX(1);
+      }
+    }
+
+    .bong {
+      position: absolute;
+      bottom: 58px;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #e5ffffc9;
+      border-radius: 50%;
+      box-shadow: inset 2px 2px 3px #ffffff80;
+      animation: rise 5s ease-in infinite;
+    }
+
+    .bong-1 { left: 18%; }
+    .bong-2 { left: 38%; width: 10px; height: 10px; animation-delay: 1.2s; }
+    .bong-3 { left: 66%; width: 20px; height: 20px; animation-delay: 2.4s; }
+    .bong-4 { left: 85%; width: 11px; height: 11px; animation-delay: 3.5s; }
+
+    @keyframes rise {
+      from {
+        transform: translateY(0);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.8;
+      }
+      to {
+        transform: translateY(-360px);
+        opacity: 0;
+      }
+    }
+
+    .plant {
+      position: absolute;
+      z-index: 2;
+      bottom: 38px;
+      width: 115px;
+      transform-origin: bottom center;
+      animation: sway 2.8s ease-in-out infinite alternate;
+    }
+
+    .plant-left {
+      left: 2%;
+    }
+
+    .plant-right {
+      right: 2%;
+      width: 95px;
+      animation-delay: 0.8s;
+    }
+
+    @keyframes sway {
+      from { transform: rotate(-4deg); }
+      to { transform: rotate(4deg); }
+    }
+
+    .shell {
+      position: absolute;
+      z-index: 2;
+      bottom: 38px;
+      width: 56px;
+      height: auto;
+      filter: drop-shadow(0 4px 2px #07546a38);
+      animation: bob 2.4s ease-in-out infinite alternate;
+    }
+    @keyframes bob {
+      to { transform: translateY(-7px); }
+    }
+
+    .shell-left { left: 25%; }
+    .shell-right {
+      right: 25%;
+      width: 48px;
+      transform: scaleX(-1);
+      animation-name: bob-reverse;
+      animation-delay: 0.7s;
+    }
+
+       @keyframes bob-reverse {
+      to { transform: translateY(-7px) scaleX(-1); }
+    }
+
+    .crab {
+      position: absolute;
+      z-index: 2;
+      bottom: 17px;
+      left: 0;
+      width: 72px;
+      height: auto;
+      filter: drop-shadow(0 4px 2px #07546a38);
+      animation: scuttle 16s linear infinite;
+    }
+
+
+    @keyframes scuttle {
+      0% {
+        left: 0;
+        transform: scaleX(1) translateY(0);
+      }
+      20%,
+      40% {
+        transform: scaleX(1) translateY(-3px);
+      }
+      49% {
+        left: calc(100% - 72px);
+        transform: scaleX(1) translateY(0);
+      }
+      50% {
+        left: calc(100% - 72px);
+        transform: scaleX(-1) translateY(0);
+      }
+      70%,
+      90% {
+        transform: scaleX(-1) translateY(-3px);
+      }
+      99% {
+        left: 0;
+        transform: scaleX(-1) translateY(0);
+      }
+      100% {
+        left: 0;
+        transform: scaleX(1) translateY(0);
+      }
+    }
+
+    .sand {
+      position: absolute;
+      z-index: 1;
+      right: -3%;
+      bottom: -27px;
+      left: -3%;
+      height: 78px;
+      border-radius: 50% 50% 0 0 / 28% 28% 0 0;
+      background: #e8bd73;
+      background-size: 38px 26px, 53px 32px, auto;
+    }
+
+    .caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 5px 2px;
+      color: #688293;
+      font-size: 14px;
+    }
+
+    .caption strong {
+      color: #338d83;
+      font-size: 13px;
+      font-weight: normal;
+    }
+
+    .image-credit {
+      padding: 5px 5px 0;
+      color: #8ca0a6;
+      font-size: 11px;
+      text-align: right;
+    }
+
+    .image-credit a {
+      color: #558b82;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 32px 14px;
+      }
+
+      .intro {
+        margin-bottom: 17px;
+      }
+
+      .intro p {
+        font-size: 14px;
+      }
+
+      .aquarium-card {
+        padding: 8px;
+        border-radius: 20px;
+      }
+
+      .aquarium {
+        height: 390px;
+        border-width: 5px;
+      }
+
+      .ca-1 { top: 76px; }
+      .ca-2 { top: 175px; }
+      .ca-3 { top: 250px; }
+      .ca { width: 92px; }
+      .ca-2 { width: 78px; }
+      .ca-3 { width: 68px; }
+      .plant { width: 88px; }
+      .plant-right { width: 76px; }
+      .shell { width: 46px; }
+      .shell-right { width: 40px; }
+      .crab { width: 58px; bottom: 15px; }
+
+      .caption {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+        padding: 12px 4px 3px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="intro">
+      <h1>Hồ cá</h1>
+      <p>Một chiếc hồ xinh xinh để ngắm cá bơi</p>
+    </header>
+
+    <section class="aquarium-card" aria-label="Hồ cá sinh động">
+      <div class="aquarium">
+
+        <img class="ca ca-1" src="https://pngimg.com/uploads/goldfish/goldfish_PNG94.png" alt="" aria-hidden="true">
+        <img class="ca ca-2" src="https://pngimg.com/uploads/goldfish/goldfish_PNG94.png" alt="" aria-hidden="true">
+        <img class="ca ca-3" src="https://pngimg.com/uploads/goldfish/goldfish_PNG94.png" alt="" aria-hidden="true">
+
+        <div class="bong bong-1"></div>
+        <div class="bong bong-2"></div>
+        <div class="bong bong-3"></div>
+        <div class="bong bong-4"></div>
+
+        <img class="plant plant-left" src="images/tảo xanh-fotor-bg-remover-20261117202843.png" alt="">
+        <img class="plant plant-right" src="images/tảo xanh-fotor-bg-remover-20261117202843.png" alt="">
+        <img class="shell shell-left" src="https://pngimg.com/uploads/seashell/seashell_PNG8.png" alt="" aria-hidden="true">
+        <img class="shell shell-right" src="https://pngimg.com/uploads/seashell/seashell_PNG8.png" alt="" aria-hidden="true">
+        <img class="crab" src="https://pngimg.com/uploads/crab/crab_PNG43.png" alt="" aria-hidden="true">
+        <div class="sand"></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
